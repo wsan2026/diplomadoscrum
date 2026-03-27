@@ -11,7 +11,6 @@ jobs:
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
-
     steps:
       - name: Clonar repositorio
         uses: actions/checkout@v3
@@ -20,26 +19,22 @@ jobs:
         run: |
           echo "Simulando instalación de dependencias..."
           sleep 2
-
       - name: 🏗 Proceso de construcción (build)
         run: |
           mkdir dist
           echo "<html><body><h1>Build generado por el pipeline</h1></body></html>" > dist/index.html
           echo "✅ Build generado en carpeta /dist"
-
       - name: 🧪 Ejecución de pruebas automáticas
         run: |
           echo "Iniciando pruebas..."
           echo "✔️ Prueba 1: PASÓ"
           echo "✔️ Prueba 2: PASÓ"
           echo "✔️ Prueba 3: PASÓ"
-
       - name: 🚀 Despliegue simulado
         run: |
           echo "Copiando archivos de /dist al servidor ficticio..."
           sleep 1
           echo "🎉 Despliegue exitoso"
-
       - name: Publicar artefacto
         uses: actions/upload-artifact@v4
         with:
